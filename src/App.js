@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
-import React from 'react'
+import React,{Component} from 'react'
 import './App.css';
-import './Table';
+// import './Table';
 import Table from "./Table";
 
 // function App() {
@@ -24,13 +24,12 @@ import Table from "./Table";
 //     </div>
 //   );
 // }
-class App extends React.Component{
-    render() {
-        const heading = <h1 className="site-heading">Hello, React</h1>
-        const characters = [
+class App extends Component{
+    state = {
+        characters: [
             {
-                name: 'Charlie',
-                job: 'Janitor',
+            name: 'Charlie',
+            job: 'Janitor',
             },
             {
                 name: 'Mac',
@@ -44,14 +43,32 @@ class App extends React.Component{
                 name: 'Dennis',
                 job: 'Bartender',
             },
-        ]
+        ],
+    }
+    removeCharacter = (index) => {
+        const {characters} = this.state;
+
+        this.setState(
+            {
+                    characters: characters.filter((characters, i) => {
+                            return i !== index;
+                    })
+            })
+    }
+
+
+    render() {
+        // const heading = <h1 className="site-heading">Hello, React</h1>
+        // const characters = [
+        //
+        // ]
         return (
-            <div className={"app"}>
-                <h1>Hello,React!</h1>
-                {heading}
-            </div>,
+            // <div className={"app"}>
+            //     <h1>Hello,React!</h1>
+            //     {heading}
+            // </div>,
             <div className={"container"}>
-              <Table characterData={characters}></Table>
+              <Table characterDate={this.state.characters} removeCharacter={this.removeCharacter}/>
             </div>
         );
     }
