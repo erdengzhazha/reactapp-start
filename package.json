@@ -6,10 +6,20 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.0",
+    "ace-builds": "^1.4.7",
+    "antd": "^3.25.0",
+    "axios": "^0.21.1",
+    "history": "^4.10.1",
     "react": "^17.0.1",
+    "react-ace": "^8.0.0",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "xterm": "^4.6.0",
+    "xterm-addon-fit": "^0.4.0",
+    "xterm-addon-search": "^0.8.0",
+    "xterm-addon-web-links": "^0.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

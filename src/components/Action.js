@@ -6,7 +6,7 @@
 import React from 'react';
 import { Link as ALink } from 'react-router-dom';
 import { Divider, Button as AButton } from 'antd';
-import { hasPermission } from 'libs';
+import { hasPermission } from '../libs';
 
 function canVisible(auth) {
   return !auth || hasPermission(auth)

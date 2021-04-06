@@ -5,7 +5,7 @@
  */
 import React from 'react';
 import { Drawer, Breadcrumb, Table, Icon, Divider, Switch, Button, Progress, Modal, message } from 'antd';
-import { http, uniqueId, X_TOKEN } from 'libs';
+import { http, uniqueId, X_TOKEN } from '../../libs';
 import lds from 'lodash';
 import styles from './index.module.css'
 
