@@ -1,10 +1,9 @@
 
 import React from 'react';
 import { Terminal } from 'xterm';
-
-
 // import { FitAddon } from 'xterm-addon-fit';
 import '../../css/ssh/terminal.css';
+import '/Users/chen_mac/WebstormProjects/reactapp-start/node_modules/xterm/css/xterm.css'
 import WSSHClient from '../../modules/ssh/webssh'
 
 
@@ -24,7 +23,7 @@ class WebSSH extends React.Component {
     }
     render() {
         return (
-            <div id="terminal" className="div01"></div>
+            <div id="terminal" ></div>
         )
     }
 
@@ -48,11 +47,11 @@ class WebSSH extends React.Component {
         /**
          * 3. 发起客户端的common命令
          */
-        // term.on('data', function (data) {
-        //     console.log('execute ,xterm.on {}',data)
-        //     //键盘输入时的回调函数 , 发起websocket信息
-        //     client.sendClientData(data);
-        // });
+        term.onData( function (data) {
+            console.log('execute ,xterm.on {}',data)
+            //键盘输入时的回调函数 , 发起websocket信息
+            client.sendClientData(data);
+        });
 
         // term在哪个element展示
         term.open(document.getElementById('terminal'));
