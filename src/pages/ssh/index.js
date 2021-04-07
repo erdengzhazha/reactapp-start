@@ -3,28 +3,87 @@ import React from 'react';
 import { Terminal } from 'xterm';
 // import { FitAddon } from 'xterm-addon-fit';
 import '../../css/ssh/terminal.css';
-import '/Users/chen_mac/WebstormProjects/reactapp-start/node_modules/xterm/css/xterm.css'
+import 'xterm/css/xterm.css'
 import WSSHClient from '../../modules/ssh/webssh'
+import FileManage from "./FileManage";
+import 'antd/dist/antd.css';
+import './css/fileManage.css';
+import { Drawer, Button } from 'antd';
+
+
+
+
+
+
+
+
+
+
+
 
 
 /**
  * WebSSH组建
  */
 class WebSSH extends React.Component {
+    state = { visible: false };
 
+    showDrawer = () => {
+        this.setState({
+            visible: true,
+        });
+    };
+
+    onClose = () => {
+        this.setState({
+            visible: false,
+        });
+    };
+    constructor(props) {
+        super(props)
+        this.operate = 'connect'
+        this.host = '172.16.22.36'
+        this.port = '22'
+        this.username = 'root'
+        this.password = 'wdz!!2020'
+        this.name = 'XiuEr'
+    }
     componentDidMount(){
         this.openTerminal({
-            operate:'connect',
-            host: '172.16.22.36',//IP
-            port: '22',//端口号
-            username: 'root',//用户名
-            password: 'wdz!!2020'//密码*/
+            operate:this.operate,
+            host: this.host,//IP
+            port: this.port,//端口号
+            username: this.username,//用户名
+            password: this.password//密码*/
         });
     }
+
     render() {
         return (
-            <div id="terminal" ></div>
-        )
+            <div className="site-drawer-render-in-current-wrapper">
+                Render in this
+                <div style={{ marginTop: 16 }}>
+                    <Button type="primary" onClick={this.showDrawer}>
+                        Open
+                    </Button>
+                    <div>
+                        <div>{this.name} | {this.username}@{this.host}:{this.port}</div>
+                        <div id="terminal" ></div>
+                    </div>
+                </div>
+                <Drawer
+                    title="Basic Drawer"
+                    placement="right"
+                    closable={false}
+                    onClose={this.onClose}
+                    visible={this.state.visible}
+                    getContainer={false}
+                    style={{ position: 'absolute' }}
+                >
+                    <p>Some contents...</p>
+                </Drawer>
+            </div>
+        );
     }
 
     /**
