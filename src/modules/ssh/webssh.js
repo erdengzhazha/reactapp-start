@@ -2,10 +2,11 @@ export default function WSSHClient() {
 };
 
 WSSHClient.prototype._generateEndpoint = function () {
-    if (window.location.protocol == 'https:') {
-        var protocol = 'wss://';
+    var protocol
+    if (window.location.protocol === 'https:') {
+        protocol= 'wss://';
     } else {
-        var protocol = 'ws://';
+        protocol = 'ws://';
     }
     var endpoint = protocol+'172.16.3.192:8848/webssh';
     return endpoint;
@@ -58,5 +59,5 @@ WSSHClient.prototype.sendClientData = function (data) {
     this._connection.send(JSON.stringify({"operate": "command", "command": data}))
 }
 
-var client = new WSSHClient();
+
 
