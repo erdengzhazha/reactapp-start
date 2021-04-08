@@ -1,26 +1,12 @@
-
 import React from 'react';
 import { Terminal } from 'xterm';
 // import { FitAddon } from 'xterm-addon-fit';
 import '../../css/ssh/terminal.css';
 import 'xterm/css/xterm.css'
 import WSSHClient from '../../modules/ssh/webssh'
-import FileManage from "./FileManage";
 import 'antd/dist/antd.css';
 import './css/fileManage.css';
 import { Drawer, Button } from 'antd';
-
-
-
-
-
-
-
-
-
-
-
-
 
 /**
  * WebSSH组建

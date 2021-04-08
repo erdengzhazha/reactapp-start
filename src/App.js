@@ -10,7 +10,7 @@ class App extends Component{
         return (
             <Switch>
                 {/*<Route path="/" exact component={Login} />*/}
-                <Route path="/" exact component={WebSSH} />
+                <Route path="/webssh" exact component={WebSSH} />
                 {/*<Route component={Layout} />*/}
             </Switch>
         );
