@@ -7,19 +7,18 @@ import WSSHClient from '../../modules/ssh/webssh'
 import 'antd/dist/antd.css';
 import './css/fileManage.css';
 import { Drawer, Button } from 'antd';
+import File from "./File";
 
 /**
  * WebSSH组建
  */
 class WebSSH extends React.Component {
     state = { visible: false };
-
     showDrawer = () => {
         this.setState({
             visible: true,
         });
     };
-
     onClose = () => {
         this.setState({
             visible: false,
@@ -47,26 +46,28 @@ class WebSSH extends React.Component {
     render() {
         return (
             <div className="site-drawer-render-in-current-wrapper">
-                Render in this
                 <div style={{ marginTop: 16 }}>
-                    <Button type="primary" onClick={this.showDrawer}>
-                        Open
-                    </Button>
                     <div>
-                        <div>{this.name} | {this.username}@{this.host}:{this.port}</div>
+                        <Button style={{ width: '100%' ,height: '44px' }} type="primary" onClick={this.showDrawer}>
+                            上传文件
+                        </Button>
                         <div id="terminal" ></div>
                     </div>
                 </div>
+
                 <Drawer
-                    title="Basic Drawer"
-                    placement="right"
+                    title="小技巧: 按ESC退出弹框"
+                    placement="bottom"
                     closable={false}
                     onClose={this.onClose}
                     visible={this.state.visible}
                     getContainer={false}
-                    style={{ position: 'absolute' }}
+                    style={{ position: 'absolute'}}
+                    // drawerStyle={{ height: '500px' }}
+                    // bodyStyle={{ height: '500px' }}
+                    height = {700}
                 >
-                    <p>Some contents...</p>
+                    <File style={{width:'200px'}}></File>
                 </Drawer>
             </div>
         );
@@ -97,14 +98,10 @@ class WebSSH extends React.Component {
             //键盘输入时的回调函数 , 发起websocket信息
             client.sendClientData(data);
         });
-
         // term在哪个element展示
         term.open(document.getElementById('terminal'));
-
         // 在页面上显示连接中...
         term.write('WellCome to Avengers ... host : 172.16.22.36 \n \r');
-
-
         // webSocket执行连接操作
         client.connect({
             onError: function (error) {

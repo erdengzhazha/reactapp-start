@@ -2,6 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import './css/fileManage.css';
 import { Drawer, Button } from 'antd';
+import File from "./File";
 class FileManage extends React.Component {
     state = { visible: false };
 
@@ -28,14 +29,14 @@ class FileManage extends React.Component {
                 </div>
                 <Drawer
                     title="Basic Drawer"
-                    placement="ss"
+                    placement="bottom"
                     closable={false}
                     onClose={this.onClose}
                     visible={this.state.visible}
                     getContainer={false}
                     style={{ position: 'absolute' }}
                 >
-                    <p>Some contents...</p>
+                    <File></File>
                 </Drawer>
             </div>
         );
