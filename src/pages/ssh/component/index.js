@@ -1,14 +1,13 @@
 import React from 'react';
 import { Terminal } from 'xterm';
 // import { FitAddon } from 'xterm-addon-fit';
-import '../../css/ssh/terminal.css';
 import 'xterm/css/xterm.css'
-import WSSHClient from '../../modules/ssh/webssh'
+import WSSHClient from '../module/webssh'
 import 'antd/dist/antd.css';
-import './css/fileManage.css';
 import { Drawer, Button } from 'antd';
 import File from "./File";
-
+import '../css/index.css'
+import FileDetail from '../component/FileDetail'
 /**
  * WebSSH组建
  */
@@ -49,7 +48,7 @@ class WebSSH extends React.Component {
                 <div style={{ marginTop: 16 }}>
                     <div>
                         <Button style={{ width: '100%' ,height: '44px' }} type="primary" onClick={this.showDrawer}>
-                            上传文件
+                            文件管理
                         </Button>
                         <div id="terminal" ></div>
                     </div>
@@ -63,11 +62,18 @@ class WebSSH extends React.Component {
                     visible={this.state.visible}
                     getContainer={false}
                     style={{ position: 'absolute'}}
-                    // drawerStyle={{ height: '500px' }}
-                    // bodyStyle={{ height: '500px' }}
                     height = {700}
                 >
-                    <File style={{width:'200px'}}></File>
+                    <div >
+                        <div>
+                            <button>上传文件</button>
+                        </div>
+                        <div className="wrap_file">
+                            <File></File>
+                            <FileDetail></FileDetail>
+                        </div>
+                    </div>
+
                 </Drawer>
             </div>
         );

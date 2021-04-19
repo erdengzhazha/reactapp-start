@@ -1,6 +1,7 @@
 import React from "react";
 import "antd/dist/antd.css";
 import { Tree } from "antd";
+import "../css/file.css"
 const { DirectoryTree } = Tree;
 
 class File extends React.Component{
@@ -52,10 +53,11 @@ class File extends React.Component{
         return (
             <DirectoryTree
                 multiple
-                defaultExpandAll
+                defaultExpandParent
                 onSelect={this.onSelect}
                 onExpand={this.onExpand}
                 treeData={this.treeData}
+                className="file"
             />
         );
     };

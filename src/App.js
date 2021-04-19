@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import './App.css';
 import {Switch, Route} from 'react-router-dom';
-import WebSSH from './pages/ssh'
+import WebSSH from './pages/ssh/component'
 
 
 class App extends Component{
@@ -10,7 +10,7 @@ class App extends Component{
         return (
             <Switch>
                 {/*<Route path="/" exact component={Login} />*/}
-                <Route path="/webssh" exact component={WebSSH} />
+                <Route path="/" exact component={WebSSH} />
                 {/*<Route component={Layout} />*/}
             </Switch>
         );
