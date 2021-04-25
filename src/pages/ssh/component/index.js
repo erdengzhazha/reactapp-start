@@ -103,7 +103,7 @@ class WebSSH extends React.Component {
             console.log("输入 === >" + data)
             // alert(data)
 
-            term.write(data);
+            // term.write(data);
             console.log('execute ,xterm.on {}',data)
             //键盘输入时的回调函数 , 发起websocket信息
             // 设置待发送的消息内容
